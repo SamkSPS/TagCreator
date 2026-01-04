@@ -95,9 +95,7 @@ function draw() {
     const colors = Array.from(document.querySelectorAll('.color-picker')).map(input => input.value);
     const useExtraBorder = document.getElementById('extraBorder').checked;
 
-    // Pega o valor do preset
     const p = widthPreset.value;
-    // Se for custom, lê o input. Se não, usa o valor do próprio select.
     canvas.width = p === 'custom' ? parseInt(customWidth.value) || 80 : parseInt(p);
     canvas.height = 18;
     
@@ -106,25 +104,21 @@ function draw() {
 
     ctx.clearRect(0, 0, W, H);
 
-    // Fundo Principal (Sombra/Borda externa)
     ctx.fillStyle = getComplexGradient(W, H, colors, true);
     ctx.fillRect(2, 0, W-4, 18);
     ctx.fillRect(1, 1, W-2, 16);
     ctx.fillRect(0, 2, W, 14);
 
     if(useExtraBorder) {
-        // Desenha uma área interna menor para criar o efeito de moldura
         ctx.fillStyle = getComplexGradient(W, H, colors);
         ctx.fillRect(3, 2, W-6, 14); 
         ctx.fillRect(2, 3, W-4, 12);
     } else {
-        // Preenchimento total (sem borda extra)
         ctx.fillStyle = getComplexGradient(W, H, colors);
-        ctx.fillRect(2, 1, W-4, 16); // Ajuste leve para não cobrir a borda externa
+        ctx.fillRect(2, 1, W-4, 16);
         ctx.fillRect(1, 2, W-2, 14);
     }
 
-    // Renderiza o texto (o W aqui já é o valor atualizado)
     renderText(text, W, 5);
 }
 
@@ -229,4 +223,5 @@ function download() {
 }
 
 bindEvents();
+
 draw();
