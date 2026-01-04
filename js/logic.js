@@ -68,9 +68,9 @@ function getComplexGradient(W, H, colors, isDark = false) {
 
     let g;
     if (dir === 'vertical') g = ctx.createLinearGradient(0, 0, 0, H);
-    else if (dir === 'horizontallf') g = ctx.createLinearGradient(0, 0, W, 0);
-    else if (dir === 'horizontal') g = ctx.createLinearGradient(0, 0, W / 2, 0);
-    else if (dir === 'diagonal') g = ctx.createLinearGradient(0, 0, W, H);
+    else if (dir === 'horizontal') g = ctx.createLinearGradient(0, 0, W, 0);
+    else if (dir === 'diagonal') g = ctx.createLinearGradient(0, 0, W/2, H);
+    else if (dir === 'diagonallf') g = ctx.createLinearGradient(0, 0, W, H);
     else g = ctx.createRadialGradient(W/2, H/2, 2, W/2, H/2, W/1.5);
 
     colors.forEach((color, i) => {
@@ -226,4 +226,5 @@ function download() {
 bindEvents();
 
 draw();
+
 
