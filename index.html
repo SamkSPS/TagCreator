@@ -2,22 +2,24 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tag Creator</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body>
     <canvas id="canvas"></canvas>
+    <p id="aviso"></p>
     <div class="controls">
         <div class="full">
-            <label>Formato e Texto</label>
+            <label for="textInput">Texto</label>
             <div style="display: flex; gap: 10px;">
                 <input type="text" id="textInput" value="Samk_SPS" style="flex: 2;">
             </div>
         </div>
         <div id="tagSettings" class="full" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
             <div>
-                <label>Largura</label>
+                <label for="widthPreset">Largura</label>
                 <select id="widthPreset">
                     <option value="80">80px</option>
                     <option value="65">65px</option>
@@ -26,8 +28,8 @@
                 </select>
             </div>
             <div>
-                <label>PX Largura</label>
-                <input type="number" id="customWidth" value="80" disabled>
+                <label for="customWidth">PX Largura</label>
+                <input type="number" id="customWidth" value="80" min="10" max="512" disabled>
             </div>
         </div>
         <hr>
@@ -50,7 +52,7 @@
             <button class="btn-add" onclick="addColor()">+ ADICIONAR COR</button>
         </div>
         <div>
-            <label>Propagação</label>
+            <label for="gradDir">Propagação</label>
             <select id="gradDir">
                 <option value="vertical">Vertical</option>
                 <option value="horizontal">Horizontal</option>
@@ -61,7 +63,7 @@
         </div>
         <div class="check-group">
             <input type="checkbox" id="extraBorder" checked>
-            <label style="margin:0">Ativar Borda Extra (Dark)</label>
+            <label for="extraBorder" style="margin:0">Ativar Borda Extra (Dark)</label>
         </div>
 
         <button class="main" onclick="download()">BAIXAR</button>
